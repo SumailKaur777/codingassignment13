@@ -1,33 +1,23 @@
-# How to run the web application
+# Use the official Node.js 14 image as a parent image
+FROM node:14
 
-To run the web application on localhost port 8018, follow these steps:
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-1. Make sure you have Docker installed on your machine.
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-2. Clone this repository:
+# Install dependencies
+RUN npm install
 
-    ```bash
-    git clone  https://github.com/SumailKaur777/codingassignment13.git
-    ```
+# Copy the rest of the application code to the working directory
+COPY . .
 
-3. Navigate to the project directory:
+# Build the production build of the React app
+RUN npm run build
 
-    ```bash
-    cd sumailapp
-    ```
+# Expose port 8018
+EXPOSE 8018
 
-4. Build the Docker container:
-
-    ```bash
-    docker build -t sumailkaur/sumailapp
-    ```
-
-5. Run the Docker container:
-
-    ```bash
-    docker run -p 8018:8018 sumailkaur/sumailapp
-    ```
-
-6. Open your web browser and go to http://localhost:8018 to view the web application.
-
-**Note:** Make sure no other service is running on port 8018 on your machine.
+# Command to run the app
+CMD ["npm", "start"]
