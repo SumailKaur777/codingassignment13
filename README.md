@@ -7,25 +7,25 @@ To run the web application on localhost port 8018, follow these steps:
 2. Clone this repository:
 
     ```bash
-    git clone <repository-url>
+    git clone  https://github.com/SumailKaur777/codingassignment13.git
     ```
 
 3. Navigate to the project directory:
 
     ```bash
-    cd lastName_firstName_ui_garden_build_checks
+    cd sumailapp
     ```
 
 4. Build the Docker container:
 
     ```bash
-    docker build -t lastName_firstName_coding_assignment13 .
+    docker build -t sumailkaur/sumailapp
     ```
 
 5. Run the Docker container:
 
     ```bash
-    docker run -p 8018:8018 lastName_firstName_coding_assignment13
+    docker run -p 8018:8018 sumailkaur/sumailapp
     ```
 
 6. Open your web browser and go to http://localhost:8018 to view the web application.
